@@ -4,12 +4,8 @@
 *@
 @{
 }
- @*@foreach(var iterar in Model )
-{
-@Html.ActionLink("Add","Guardar",new{id=@iterar.Id},new{@class="btn btn-primary"})
-}*@
-
-@Html.ActionLink("Save","Guardar",new{@class="btn btn-primary"})
+ 
+@Html.ActionLink("Add","save",new{@class="btn btn-primary"})
 
 <table class="table table-striped id="tablaEst" ">
     <thead>
@@ -24,6 +20,7 @@
         {
             <tr>
                 <td>@iterar.Name</td>
+                 <td>@iterar.LastName</td>
                 @*el primero es para texto DELETE*@
                 @*el segundo es para la accion del controlador*@
                 <td> @Html.ActionLink("Delete","Delete",new{id=@iterar.Id},new{@class="btn btn-danger"})

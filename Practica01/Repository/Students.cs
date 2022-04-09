@@ -44,8 +44,8 @@ namespace Practica01.Repository
 
         public Estudiantes LoadInformation(Estudiantes es)
           {
-              var listarestudiante = app.Estudiantes.Where(x=>x.Id==es.Id).FirstOrDefault();
-              return listarestudiante;
+             var listarestudiante = app.Estudiantes.Where(x=>x.Id==es.Id).FirstOrDefault();
+             return listarestudiante;
 
           }
 
