@@ -14,18 +14,51 @@ namespace Practica01.Controllers
             Estudiante = estudiante;
         }
 
+        public IActionResult Delete(int id)
+        {
+            Estudiantes es = new Estudiantes();
+            es.Id = id;
+            Estudiante.DeleteStudents(es);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Load(int id)
+        {
+            Estudiantes es = new Estudiantes();
+            es.Id = id;
+           var listarestudiante=  Estudiante.LoadInformation(es);
+
+            return View(listarestudiante);
+        }
+
+        public IActionResult actu(Estudiantes es)
+        {
+            Estudiante.UpdateStudents(es);
+
+            return RedirectToAction();
+        }
+
+        public IActionResult Guardar()
+        {
+
+            return View("Guardar");
+        }
+
         public IActionResult Index()
         {
-            //Estudiantes  es = new Estudiantes();
+            //Estudiantes es = new Estudiantes();
             //es.Id = 3;
             //es.Name = "Marlon";
             //es.LastName = "Martinez";
             ////Estudiante.UpdateStudents(es);//
             //Estudiante.GetAll();
-            return View();
+            var listar = Estudiante.GetAll();
+            return View(listar);
         }
         [HttpPost]
-        public IActionResult Insertardata(Estudiantes es)  { 
+        public IActionResult Insertardata(Estudiantes es)  
+        { 
 
         return RedirectToAction("Index");
        // return View("Index");

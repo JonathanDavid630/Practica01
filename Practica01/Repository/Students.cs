@@ -42,11 +42,18 @@ namespace Practica01.Repository
             //    throw new NotImplementedException();
         }
 
+        public Estudiantes LoadInformation(Estudiantes es)
+          {
+              var listarestudiante = app.Estudiantes.Where(x=>x.Id==es.Id).FirstOrDefault();
+              return listarestudiante;
+
+          }
+
         public void UpdateStudents(Estudiantes es)
         {
             app.Estudiantes.Update(es);
             app.SaveChanges();
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }

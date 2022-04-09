@@ -1,5 +1,42 @@
-﻿@*
+﻿@model List<Practica01.Models.Estudiantes>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+}
+ @*@foreach(var iterar in Model )
+{
+@Html.ActionLink("Add","Guardar",new{id=@iterar.Id},new{@class="btn btn-primary"})
+}*@
+
+@Html.ActionLink("Save","Guardar",new{@class="btn btn-primary"})
+
+<table class="table table-striped id="tablaEst" ">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Last Namer</th>
+            <th>Acciones</th>
+        </tr> 
+    </thead>  
+    <tbody> 
+        @foreach(var iterar in Model )
+        {
+            <tr>
+                <td>@iterar.Name</td>
+                @*el primero es para texto DELETE*@
+                @*el segundo es para la accion del controlador*@
+                <td> @Html.ActionLink("Delete","Delete",new{id=@iterar.Id},new{@class="btn btn-danger"})
+                @Html.ActionLink("Update","Load",new{id=@iterar.Id},new{@class="btn btn-warning"})  </td> 
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var tabla = $(#'tablaEst').DataTable();
+    }
+    </script>          
 }
