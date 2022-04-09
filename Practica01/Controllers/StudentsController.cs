@@ -36,13 +36,14 @@ namespace Practica01.Controllers
         {
             Estudiante.UpdateStudents(es);
 
-            return RedirectToAction();
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Guardar()
+        public IActionResult Guardar(Estudiantes es)
         {
+            Estudiante.UpdateStudents(es);
 
-            return View("Guardar");
+            return View("Index");
         }
 
         public IActionResult Index()
